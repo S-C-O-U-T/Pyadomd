@@ -20,7 +20,7 @@ config.read('config.ini')
 
 data_source = 'asazure://northeurope.asazure.windows.net/aast'
 #conn_str = f'Provider=MSOLAP;Data Source={data_source};Initial Catalog=Test;User ID=;Password={token};Persist Security Info=True;Impersonation Level=Impersonate'
-conn_str = f'Data Source=127.0.0.1:49959;'
+conn_str = 'Data Source=127.0.0.1:49959;'
 
 
 with Pyadomd(conn_str) as conn:
