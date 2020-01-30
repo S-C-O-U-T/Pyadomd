@@ -5,9 +5,12 @@ from System import Decimal
 from datetime import datetime
 from functools import partial
 
+#Types
+F = Callable[[Any], Any]
 class Type_code(NamedTuple):
-    type_obj:Any
+    type_obj:F
     type_name:str
+
 
 def _option_type(datatype, data):
     if data:
@@ -23,6 +26,6 @@ adomd_type_map:Dict[str, Type_code] = {
     'System.String': Type_code(partial(_option_type, str), str.__name__)
 }
 
-def convert(datatype:str, data:Any, type_map:Dict[str, Any]):
+def convert(datatype:str, data:Any, type_map:Dict[str, Type_code]):
     type_to_convert = type_map[datatype]
     return type_to_convert.type_obj(data)
