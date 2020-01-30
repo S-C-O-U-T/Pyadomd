@@ -11,7 +11,6 @@ class Type_code(NamedTuple):
     type_obj:F
     type_name:str
 
-
 def _option_type(datatype, data):
     if data:
         return datatype(data)
