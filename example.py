@@ -18,14 +18,9 @@ data_source = 'asazure://northeurope.asazure.windows.net/aast'
 #conn_str = f'Provider=MSOLAP;Data Source={data_source};Initial Catalog=Test;User ID=;Password={token};Persist Security Info=True;Impersonation Level=Impersonate'
 conn_str = 'Data Source=127.0.0.1:49959;'
 
-l = []
+
 with Pyadomd(conn_str) as conn:
-    with conn.cursor().execute(q) as cur: 
-        for i in cur.fetchone(): # type: ignore
-            print(i)
-            print('*'*10)
-            print(type(i[3]))
-            print('*'*10)
-            l.append(i)
+    with conn.cursor().execute(q) as cur:
+        print(cur.fetchmany(2))
 
 print(cur.description)

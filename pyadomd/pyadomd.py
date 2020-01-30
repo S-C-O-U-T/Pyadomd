@@ -34,12 +34,20 @@ class Cursor:
                     self._reader.GetName(i), 
                     adomd_type_map[self._reader.GetFieldType(i).ToString()].type_name
                     )
-                
         return self
 
     def fetchone(self) -> Iterator[Tuple[T, ...]]:
         while(self._reader.Read()):
             yield tuple(convert(self._reader.GetFieldType(i).ToString(), self._reader[i], adomd_type_map) for i in range(self._field_count))
+
+    def fetchmany(self, size=1) -> List[Tuple[T, ...]]:
+        l:List[Tuple[T, ...]] = []
+        try:
+            for i in range(size):
+                l.append(next(self.fetchone()))
+        except StopIteration:
+            pass
+        return l
 
     @property
     def is_closed(self) -> bool:
