@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import Iterator, TypeVar, Tuple, List, NamedTuple
+from pyadomd import *
 
 #Types
 T = TypeVar('T')
@@ -7,18 +7,17 @@ class Description(NamedTuple):
     name:str
     type_code:str
 
-import clr # type: ignore
+import clr
 clr.AddReference('Microsoft.AnalysisServices.AdomdClient')
 from Microsoft.AnalysisServices.AdomdClient import AdomdConnection, AdomdCommand # type: ignore
 
-from collections import namedtuple
+from pyadomd.type_code import adomd_type_map, convert
 
 class Cursor:
     
     def __init__(self, connection:AdomdConnection):
         self._conn = connection
-        self._description:List[Description] = []
-
+        self._description:Optional[Description] = None
 
     def close(self) -> None:
         if self.is_closed:
@@ -31,13 +30,16 @@ class Cursor:
         self._field_count = self._reader.FieldCount
         
         for i in range(self._field_count):
-            self._description.append(Description(self._reader.GetName(i), self._reader.GetFieldType(i).ToString()))
-
+            self._description = Description(
+                    self._reader.GetName(i), 
+                    adomd_type_map[self._reader.GetFieldType(i).ToString()].type_name
+                    )
+                
         return self
 
     def fetchone(self) -> Iterator[Tuple[T, ...]]:
         while(self._reader.Read()):
-            yield tuple(self._reader[i] for i in range(self._field_count))
+            yield tuple(convert(self._reader.GetFieldType(i).ToString(), self._reader[i], adomd_type_map) for i in range(self._field_count))
 
     @property
     def is_closed(self) -> bool:
@@ -46,6 +48,10 @@ class Cursor:
         except AttributeError:
             return True        
         return state
+
+    @property
+    def description(self) -> Optional[Description]:
+        return self._description
 
     def __enter__(self) -> Cursor:
         return self

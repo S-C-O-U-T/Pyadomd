@@ -2,16 +2,12 @@ from sys import path
 path.append('C:\\Program Files\\Microsoft.NET\\ADOMD.NET\\150')
 
 from configparser import ConfigParser
-
-import clr # type: ignore
-clr.AddReference('Microsoft.AnalysisServices.AdomdClient')
-from Microsoft.AnalysisServices.AdomdClient import AdomdConnection, AdomdCommand # type: ignore
-
-#from utils import get_acces_token
 from pyadomd.pyadomd import Pyadomd
 
+#from utils import get_acces_token
+
 #q = r"""EVALUATE SUMMARIZECOLUMNS('Sample Data'[Value2], 'Sample Data'[Value3], "Sum of Value 1", [Sum of Value 1])"""
-q = """EVALUATE SUMMARIZECOLUMNS('Table1'[Integer], 'Table1'[String])"""
+q = """EVALUATE SUMMARIZECOLUMNS('Table1'[Boolean], 'Table1'[Currency], 'Table1'[DateTime], 'Table1'[Date], 'Table1'[Floating Point], 'Table1'[Integer], 'Table1'[String], 'Table1'[Time])"""
 source = 'https://northeurope.asazure.windows.net'
 
 config = ConfigParser()
@@ -22,10 +18,14 @@ data_source = 'asazure://northeurope.asazure.windows.net/aast'
 #conn_str = f'Provider=MSOLAP;Data Source={data_source};Initial Catalog=Test;User ID=;Password={token};Persist Security Info=True;Impersonation Level=Impersonate'
 conn_str = 'Data Source=127.0.0.1:49959;'
 
-
+l = []
 with Pyadomd(conn_str) as conn:
     with conn.cursor().execute(q) as cur: 
         for i in cur.fetchone(): # type: ignore
             print(i)
+            print('*'*10)
+            print(type(i[3]))
+            print('*'*10)
+            l.append(i)
 
-print(cur._description)
+print(cur.description)
