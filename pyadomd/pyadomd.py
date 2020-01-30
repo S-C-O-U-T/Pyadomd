@@ -17,7 +17,7 @@ class Cursor:
     
     def __init__(self, connection:AdomdConnection):
         self._conn = connection
-        self._description:Optional[Description] = None
+        self._description:List[Description] = []
 
     def close(self) -> None:
         if self.is_closed:
@@ -30,10 +30,10 @@ class Cursor:
         self._field_count = self._reader.FieldCount
         
         for i in range(self._field_count):
-            self._description = Description(
+            self._description.append(Description(
                     self._reader.GetName(i), 
                     adomd_type_map[self._reader.GetFieldType(i).ToString()].type_name
-                    )
+                    ))
         return self
 
     def fetchone(self) -> Iterator[Tuple[T, ...]]:
@@ -49,6 +49,10 @@ class Cursor:
             pass
         return l
 
+    def fetchall(self) -> List[Tuple[T, ...]]:
+        # mypy issues with list comprehension :-( 
+        return [i for i in self.fetchone()] # type: ignore
+
     @property
     def is_closed(self) -> bool:
         try:
@@ -58,7 +62,7 @@ class Cursor:
         return state
 
     @property
-    def description(self) -> Optional[Description]:
+    def description(self) -> List[Description]:
         return self._description
 
     def __enter__(self) -> Cursor:
