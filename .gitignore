@@ -130,3 +130,6 @@ dmypy.json
 
 # Sensitive stuff
 config.ini
+
+# Vscode
+.vscode/
