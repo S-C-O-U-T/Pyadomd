@@ -132,6 +132,7 @@ dmypy.json
 config.ini
 
 # Vscode
+.vscode
 .vscode/
 .vscode/*
 !.vscode/settings.json
