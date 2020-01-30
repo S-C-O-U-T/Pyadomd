@@ -1,0 +1,6 @@
+{
+    "python.pythonPath": "c:\\Users\\andbo\\OneDrive\\Documents\\Projekts\\SCOUT\\Pyadomd\\env\\Scripts\\python.exe",
+    "python.linting.pylintEnabled": false,
+    "python.linting.mypyEnabled": true,
+    "python.linting.enabled": true
+}
