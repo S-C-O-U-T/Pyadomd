@@ -19,7 +19,7 @@ data_source = 'asazure://northeurope.asazure.windows.net/aast'
 conn_str = 'Data Source=127.0.0.1:49959;'
 
 with Pyadomd(conn_str) as conn:
-    with conn.cursor().execute(q) as cur: 
+    with conn.cursor().execute(q) as cur:
         print(cur.fetchall())
         
 print(cur.description)

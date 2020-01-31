@@ -1,9 +1,11 @@
+"""
+**This module is for internal use**
+"""
 from pyadomd import *
-import clr
-clr.AddReference('System')
 from System import Decimal
 from datetime import datetime
 from functools import partial
+
 
 #Types
 F = Callable[[Any], Any]
