@@ -17,11 +17,11 @@ Query SSAS Tabular model
 ------------------------
 
 .. code-block:: python
-
-    from pyadomd import Pyadomd
-
+    
     from sys import path
     path.append('\\Program Files\\Microsoft.NET\\ADOMD.NET\\150')
+
+    from pyadomd import Pyadomd
     
     conn_str = 'Provider=MSOLAP;Data Source=localhost;Catalog=AdventureWorks;'
     query = """EVALUATE Product"""
