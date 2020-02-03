@@ -27,7 +27,7 @@ setup(
     'Intended Audience :: Developers',      # Define that your audience are developers
     'Topic :: Database',
     'License :: OSI Approved :: Apache Software License',
-    'Microsoft :: Windows',
+    'Operating System :: Microsoft :: Windows',
     'Programming Language :: Python :: 3.6',
     'Programming Language :: Python :: 3.7'
   ],
