@@ -1,6 +1,8 @@
 Pyadomd
 ===================================
 
+A pythonic approach to query SSAS data models.
+
 .. toctree::
    :maxdepth: 4
    :caption: Contents:
