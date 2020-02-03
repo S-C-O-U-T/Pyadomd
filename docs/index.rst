@@ -5,6 +5,8 @@ Pyadomd
    :maxdepth: 4
    :caption: Contents:
 
+   getting_started
+   
    pyadomd
 
 

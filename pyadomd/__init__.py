@@ -2,3 +2,5 @@ from typing import Any, cast, Callable, Dict, Iterator, List, NamedTuple, Option
 import clr
 clr.AddReference('System')
 from System.IO import FileNotFoundException
+
+from .pyadomd import Pyadomd
