@@ -17,7 +17,7 @@ sys.path.insert(0, os.path.abspath('..'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'Pyadomd'
+project = 'pyadomd'
 copyright = '2020, SCOUT'
 author = 'SCOUT'
 
