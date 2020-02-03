@@ -1,4 +1,4 @@
-# Pyadomd
+# pyadomd
 
 A pythonic approach to query SSAS data models.
 
