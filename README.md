@@ -5,6 +5,12 @@ A pythonic approach to query SSAS data models.
 ![](https://img.shields.io/pypi/l/pyadomd)
 ![](https://img.shields.io/pypi/pyversions/pyadomd)
 
+## Installation
+
+```console
+pip install pyadomd
+```
+
 ## Query SSAS Tabular model
 
 ```python

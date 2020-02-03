@@ -9,7 +9,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 setup(
   name = 'pyadomd',         # How you named your package folder (MyLib)
   packages = ['pyadomd'],   # Chose the same as "name"
-  version = '0.0.3',      # Start with a small number and increase it with every change you make
+  version = '0.0.4',      # Start with a small number and increase it with every change you make
   license='Apache License 2.0',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
   description = 'A pythonic approach to query SSAS data models',   # Give a short description about your library
   long_description=long_description,
@@ -27,6 +27,7 @@ setup(
     'Intended Audience :: Developers',      # Define that your audience are developers
     'Topic :: Database',
     'License :: OSI Approved :: Apache Software License',
+    'Microsoft :: Windows',
     'Programming Language :: Python :: 3.6',
     'Programming Language :: Python :: 3.7'
   ],
