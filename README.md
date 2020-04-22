@@ -36,6 +36,5 @@ from pandas import DataFrame
 
 with Pyadomd(conn_str) as conn:
     with conn.cursor().execute(q) as cur:
-        df = DataFrame(cur.fetchone(),
-        columns=[i.name for i in cur.description])
+        df = DataFrame(cur.fetchone(), columns=[i.name for i in cur.description])
 ```
