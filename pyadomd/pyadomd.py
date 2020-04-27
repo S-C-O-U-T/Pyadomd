@@ -31,13 +31,15 @@ try:
     clr.AddReference('Microsoft.AnalysisServices.AdomdClient')
     from Microsoft.AnalysisServices.AdomdClient import AdomdConnection, AdomdCommand # type: ignore
 except FileNotFoundException as e:
-    print('===============================================================================')
+    print('========================================================================================')
     print(e.ToString())
     print()
     print('This error is raised when Pyadomd is not able to find the AdomdClient.dll file')
     print('The error might be solved by adding the dll to your path. ')
+    print('Make sure that the dll is added, to the path, before you inport Pyadomd.')
+    print()
     print('If in doubt how to do that, please have a look at Getting Stated in the docs.')
-    print('===============================================================================')
+    print('========================================================================================')
 
 from pyadomd._type_code import adomd_type_map, convert
 
