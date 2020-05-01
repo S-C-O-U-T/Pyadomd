@@ -4,6 +4,7 @@ A pythonic approach to query SSAS data models.
 
 ![](https://img.shields.io/pypi/l/pyadomd)
 ![](https://img.shields.io/pypi/pyversions/pyadomd)
+![](https://img.shields.io/badge/windows-10-blue)
 [![Documentation Status](https://readthedocs.org/projects/pyadomd/badge/?version=latest)](https://pyadomd.readthedocs.io/en/latest/?badge=latest)
 
 ## Installation
