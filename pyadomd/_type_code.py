@@ -37,7 +37,8 @@ adomd_type_map:Dict[str, Type_code] = {
     'System.DateTime': Type_code(lambda x: datetime(x.Year, x.Month, x.Day, x.Hour, x.Minute, x.Second) if x else None, datetime.__name__),
     'System.Double': Type_code(partial(_option_type, float), float.__name__),
     'System.Int64': Type_code(partial(_option_type, int), int.__name__),
-    'System.String': Type_code(partial(_option_type, str), str.__name__)
+    'System.String': Type_code(partial(_option_type, str), str.__name__),
+    'System.Object': Type_code(lambda x: x, 'System.Object')
 }
 
 def convert(datatype:str, data:Any, type_map:Dict[str, Type_code]):
