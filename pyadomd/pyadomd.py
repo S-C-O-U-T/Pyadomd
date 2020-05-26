@@ -36,7 +36,7 @@ except FileNotFoundException as e:
     print()
     print('This error is raised when Pyadomd is not able to find the AdomdClient.dll file')
     print('The error might be solved by adding the dll to your path. ')
-    print('Make sure that the dll is added, to the path, before you inport Pyadomd.')
+    print('Make sure that the dll is added, to the path, before you import Pyadomd.')
     print()
     print('If in doubt how to do that, please have a look at Getting Stated in the docs.')
     print('========================================================================================')
