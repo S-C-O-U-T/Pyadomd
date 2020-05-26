@@ -15,7 +15,7 @@ setup(
   long_description=long_description,
   long_description_content_type='text/markdown',
   author = 'SCOUT',                   # Type in your name
-  author_email = 'andboye@outlook.com',      # Type in your E-Mail
+  author_email = 'andboy@gmail.com',      # Type in your E-Mail
   url = 'https://github.com/Andboye/Pyadomd',   # Provide either the link to your github or to your website
   download_url = 'https://github.com/Andboye/Pyadomd/archive/v_0.0.4.tar.gz', 
   keywords = ['adomd', 'ssas', 'ssas-tabular', 'ssasadomd'],   # Keywords that define your package best
