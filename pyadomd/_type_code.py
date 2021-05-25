@@ -19,7 +19,6 @@ from System import Decimal
 from datetime import datetime
 from functools import partial
 
-
 #Types
 F = Callable[[Any], Any]
 class Type_code(NamedTuple):
