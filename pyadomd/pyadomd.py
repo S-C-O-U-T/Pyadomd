@@ -86,7 +86,7 @@ class Cursor:
         Fetches one or more lines from the last executed query
 
         :params [size]: The number of rows to fetch. 
-                        If the size parameter exceeds the number of rows returned from the last executed query then fetchmany will return to all rows from that query.
+                        If the size parameter exceeds the number of rows returned from the last executed query then fetchmany will return all rows from that query.
         """
         l:List[Tuple[T, ...]] = []
         try:
@@ -98,7 +98,7 @@ class Cursor:
 
     def fetchall(self) -> List[Tuple[T, ...]]:
         """
-        Fetches all the rows from the last executes query
+        Fetches all the rows from the last executed query
         """
         # mypy issues with list comprehension :-( 
         return [i for i in self.fetchone()] # type: ignore
