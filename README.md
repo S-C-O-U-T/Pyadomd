@@ -52,11 +52,12 @@ A: This exception is most likely raised because you have'ent added the folder wi
 Example:
 ```Python
 from sys import path
-path.append('\\Program Files\\Microsoft.NET\\ADOMD.NET\\150') #added to the path _before_ importing the pyadomd package
+#added to the path _before_ importing the pyadomd package
+path.append('\\Program Files\\Microsoft.NET\\ADOMD.NET\\150')
 
 from pyadomd import Pyadomd
 ```
 
 Q: When I try to connect the a Azure Analysis Servised instance I get an Authentication faild: User ID and Password are required when user interface is not available?
 
-A: This exception is most likely raised due to you "app" is not registate in Azure.
+A: This exception is most likely raised due to your "app" is not registered. Please follow the microsoft app registration documentation [microsoft docs](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal). The script: connect_to_ass.py in the test folder is a simple example of how to create a connection to Azure Analysis Service. Please note that this only an example, and not necessarily suitable for all apps.
