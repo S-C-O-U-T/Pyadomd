@@ -59,6 +59,9 @@ path.append('\\Program Files\\Microsoft.NET\\ADOMD.NET\\150')
 from pyadomd import Pyadomd
 ```
 
-Q: When I try to connect the a Azure Analysis Servised instance I get an Authentication faild: User ID and Password are required when user interface is not available?
+Q: When I try to connect an Azure Analysis Servise instance I get an:
+```
+Authentication faild: User ID and Password are required when user interface is not available?
+```
 
-A: This exception is most likely raised due to your "app" is not registered. Please follow the microsoft app registration documentation [microsoft docs](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal). The script: connect_to_ass.py in the test folder is a simple example of how to create a connection to Azure Analysis Service. Please note that this only an example, and not necessarily suitable for all apps.
+A: This exception is most likely raised due to your "app" is not registered. Please follow the microsoft app registration documentation [microsoft docs](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal). The script: connect_to_ass.py ([link to script](https://github.com/S-C-O-U-T/Pyadomd/blob/master/test/connect_to_aas_win.py)) is a simple example on how to create a connection to a Azure Analysis Service. Please note that this is only an example, and not necessarily suitable for all apps.
