@@ -28,6 +28,8 @@ class Type_code(NamedTuple):
 def _option_type(datatype, data):
     if data:
         return datatype(data)
+    if datatype in [bool, int, float] and data == 0:
+        return datatype(data)
     return None
 
 adomd_type_map:Dict[str, Type_code] = {
