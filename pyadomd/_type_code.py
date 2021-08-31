@@ -40,7 +40,11 @@ adomd_type_map:Dict[str, Type_code] = {
     'System.Int64': Type_code(partial(_option_type, int), int.__name__),
     'System.UInt64': Type_code(partial(_option_type, int), int.__name__),
     'System.String': Type_code(partial(_option_type, str), str.__name__),
-    'System.Object': Type_code(lambda x: x, 'System.Object')
+    'System.Object': Type_code(lambda x: x, 'System.Object'),
+    'System.Guid': Type_code(partial(_option_type, str), str.__name__),
+    'System.UInt32': Type_code(partial(_option_type, int), int.__name__),
+    'System.Int16': Type_code(partial(_option_type, int), int.__name__),
+    'System.Int32':  Type_code(partial(_option_type, int), int.__name__),
 }
 
 def convert(datatype:str, data:Any, type_map:Dict[str, Type_code]):
