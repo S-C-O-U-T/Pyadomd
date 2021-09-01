@@ -59,7 +59,7 @@ path.append('\\Program Files\\Microsoft.NET\\ADOMD.NET\\150')
 from pyadomd import Pyadomd
 ```
 
-Q: When I try to connect an Azure Analysis Service instance I get an:
+Q: When I try to connect to an Azure Analysis Service instance I get:
 ```
 Authentication faild: User ID and Password are required when user interface is not available?
 ```
