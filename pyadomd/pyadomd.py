@@ -74,6 +74,17 @@ class Cursor:
                     ))
         return self
 
+    def executeNonQuery(self, command:str) -> Cursor:
+        """
+            Executes a Analysis Services Command agains the database
+            
+            :params [command]: The command to be executed
+        """
+        self._cmd = AdomdCommand(command, self._conn)
+        self._reader = self._cmd.ExecuteNonQuery()
+
+        return self
+
     def fetchone(self) -> Iterator[Tuple[T, ...]]:
         """
         Fetches the current line from the last executed query
